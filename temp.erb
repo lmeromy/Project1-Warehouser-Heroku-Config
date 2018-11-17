@@ -1,0 +1,14 @@
+<!-- from manuf/edit selected loop! -->
+
+<label for="sector">Select Outdoor Industry Sector:</label>
+<select name="sector" id="sector" selected="<%=@brand_object.sector%>">
+  <% @all_brands.each do |brand| %>
+    <% if brand.sector == @brand_object.sector %>
+      <option value=<%= brand.sector %> selected><%= brand.sector %></option>
+    <% else %>
+      <option value=<%= stock.item_id %>><%= stock.product.product%></option>
+    <% end %>
+  <% end %>
+</select>
+
+<p>  Stock Level: <%= item.update_stock_levels %> </p>

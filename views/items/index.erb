@@ -1,0 +1,55 @@
+<h2>All Products</h2>
+<!--
+if deleted = yes then
+alert "this works!"
+end -->
+<div class="grid-row">
+<form action="/items/new" method="GET">
+  <input class="new-button" type="submit" value="Add New Item"/>
+</form>
+
+</br>
+<%#  The sort button does NOT yet work! Must
+work on the method in item.rb? maybe? %>
+<form action="/items/sort" method="POST">
+  <input class="new-button" type="submit" value="Sort by Stock Level"/>
+</form>
+</div>
+
+</br>
+
+<table id="inventory-all">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Manufacturer</th>
+      <th>Product Category</th>
+      <th>Wholesale Cost</th>
+      <th>Retail Price</th>
+      <th>Quantity in Stock</th>
+      <th>Inventory Level</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%for item in @items %>
+    <tr>
+      <td><%= item.product %></td>
+      <td><%= item.brand.name %> </td>
+      <td><%= item.category %></td>
+      <td><%= item.costprice %> </td>
+      <td><%= item.sellprice %></td>
+      <td><%= item.quantity %> </td>
+      <td><%= item.update_stock_levels %> </td>
+      <td><form action="/items/<%= item.id%>/edit" method="GET">
+        <input class="info-button" type="submit" value="Edit Item"/>
+      </form></td>
+      <td><form action="/items/<%= item.id%>/delete" method="POST">
+        <!-- deleted = yes -->
+        <input class="info-button" type="submit" value="Delete Item"/>
+      </form></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

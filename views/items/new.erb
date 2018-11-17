@@ -1,0 +1,38 @@
+<h2>Add A New Product</h2>
+
+
+<form class="myform" action="/items" method="POST">
+
+  <div class="myform-row">
+  <label for="product"> Product Name:</label>
+  <input id="product" type="text" name="product"/>
+
+  <label for="cat"> Product Category:</label>
+  <input id="cat" type="text" name="category"/>
+  </div>
+
+  <div class="myform-row">
+  <label for="wholesale">Wholesale Price:</label>
+  <input id="wholesale" type="number" name="costprice"/>
+
+  <label for="retail">Retail Price:</label>
+  <input id="retail" type="number" name="sellprice"/>
+  </div>
+
+  <div class="myform-row">
+  <label>Select a Brand:
+    <select name="manuf_id">
+      <% for brand in @manufacturers %>
+      <option value="<%= brand.id %>"><%= brand.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label for="quant">Quantity:</label>
+  <input id="quant" type="number" name="quantity"/>
+  </div>
+
+  <div class="myform-row">
+  <input class="info-button" type='submit' value="Add Item To Inventory">
+  </div>
+</form>

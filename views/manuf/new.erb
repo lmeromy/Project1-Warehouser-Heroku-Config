@@ -1,0 +1,26 @@
+<h2>Add a Brand Manufacturer </h2>
+
+<form class="myform" action="/manuf" method="POST">
+
+  <div class="myform-row">
+    <label for="name">Name of Brand:</label>
+    <input id="name" type="text" name="name"/>
+  </div>
+
+
+  <div class="myform-row">
+    <label for="sector">Select Outdoor Industry Sector:</label>
+    <select id="sector" name="sector">
+      <option value="Gear">Gear</option>
+      <option value="Clothing">Clothing</option>
+      <option value="Technical Clothing">Technical Clothing</option>
+      <option value="Gear & Technical Clothing">Gear & Technical Clothing</option>
+      <option value="Reference Material">Reference Material</option>
+      <option value="Footware">Footware</option>
+    </select>
+  </div>
+
+  <div class="myform-row">
+    <input class="info-button" type='submit' value="Add stock to inventory">
+  </div>
+</form>

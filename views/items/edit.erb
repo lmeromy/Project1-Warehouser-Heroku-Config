@@ -1,0 +1,41 @@
+<h2>Edit/Update Inventory Item</h2>
+
+<form class="myform" method="POST" action="/items/<%=@item.id%>">
+
+  <div class="myform-row">
+  <label for="product"> Product Name:</label>
+  <input id="product" type="text" name="product" value="<%=@item.product%>"/>
+
+  <label for="cat"> Product Category:</label>
+  <input id="cat" type="text" name="category" value="<%=@item.category%>"/>
+  </div>
+
+  <div class="myform-row">
+  <label for="wholesale">Wholesale Price:</label>
+  <input id="wholesale" type="number" name="costprice" value="<%=@item.costprice%>"/>
+
+  <label for="retail">Retail Price:</label>
+  <input id="retail" type="number" name="sellprice" value="<%=@item.sellprice%>"/>
+  </div>
+
+  <div class="myform-row">
+  <label for="manuf-select">Select a Brand:</label>
+  <select name="manuf_id" id="manuf-select" selected="<%=@item.manuf_id%>">
+    <% @all_items.each do |stock| %>
+      <% if stock.manuf_id == @item.manuf_id %>
+        <option value=<%= stock.manuf_id %> selected><%= stock.brand.name%></option>
+      <% else %>
+        <option value=<%= stock.manuf_id %>><%= stock.brand.name%></option>
+      <% end %>
+    <% end %>
+  </select>
+
+  <label for="quantity">Quantity in stock:</label>
+  <input id="quantity" type="number" name="quantity" value="<%=@item.quantity%>"/>
+  </div>
+  
+  <div class="myform-row">
+  <input type="submit" value="Update Stock Item"/>
+  </div>
+
+</form>

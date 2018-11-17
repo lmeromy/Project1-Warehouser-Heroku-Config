@@ -1,0 +1,42 @@
+<h2>Manage Winter Product Markup</h2>
+
+</br>
+<div class="grid-row">
+<form action="/tools/markup" method="GET">
+  <input class="new-button" type="submit" value="Back Markup Manager"/>
+</form>
+
+</br>
+
+<form action="/tools/optimize_winter" method="POST">
+  <label for="margin"> Enter Desired Margin:</label>
+  <input id="margin" type="number" name="margin"/>
+
+  <input class="info-button" type="submit" value="Update Winter Item Markup"/>
+</form>
+</div>
+
+</br>
+
+<table id="markup-all">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Manufacturer</th>
+      <th>Product Category</th>
+      <th>Margin (%)</th>
+      <th>Net Profit (£)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%for item in @items %>
+    <tr>
+      <td><%= item.product %></td>
+      <td><%= item.brand.name %> </td>
+      <td><%= item.category %></td>
+      <td><%= item.margin %> </td>
+      <td><%= item.net_profit %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

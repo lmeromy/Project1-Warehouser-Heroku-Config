@@ -1,0 +1,48 @@
+<h2>Manage Product Markup</h2>
+
+<div class="grid-row">
+<form action="/tools/optimize_winter" method="GET">
+  <input class="new-button" type="submit" value="Optimize Profits for Winter"/>
+</form>
+
+</br>
+
+<form action="/tools/optimize_summer" method="GET">
+  <input class="new-button" type="submit" value="Optimize Profits for Summer"/>
+</form>
+
+</br>
+
+<form action="/tools/reset" method="POST">
+  <input class="new-button" type="submit" value="Reset All Margins To 50%"/>
+</form>
+</div>
+
+</br>
+
+<table id="markup-all">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Manufacturer</th>
+      <th>Product Category</th>
+      <th>Margin (%)</th>
+      <th>Net Profit (£)</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%for item in @items %>
+    <tr>
+      <td><%= item.product %></td>
+      <td><%= item.brand.name %> </td>
+      <td><%= item.category %></td>
+      <td><%= item.margin %> </td>
+      <td><%= item.net_profit %></td>
+      <td><form action="/tools/<%= item.id%>/edit" method="GET">
+        <input class="info-button" type="submit" value="Update Markup"/>
+      </form></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
